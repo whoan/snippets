@@ -1,6 +1,9 @@
 #ifndef _SNIPPETS_BFS_HPP
 #define _SNIPPETS_BFS_HPP
 
+#include <unordered_map>
+#include <queue>
+
 template <typename GraphAdjacencyList, typename VertexType, typename Tree = std::unordered_map<VertexType, VertexType>>
 class BreadthFirstTree {
   VertexType source;
