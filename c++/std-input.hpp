@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+namespace snip {
+
 template <typename T>
 std::vector<T> createCollectionFromStdInput(std::size_t size) {
   std::vector<T> collection;
@@ -14,5 +16,7 @@ std::vector<T> createCollectionFromStdInput(std::size_t size) {
   }
   return collection;
 }
+
+} // snip namespace
 
 #endif
