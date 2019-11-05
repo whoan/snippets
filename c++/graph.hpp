@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+namespace snip {
+
 template <typename AdjacencyList>
 void printGraph(const AdjacencyList& graph) {
   for (const auto& pair: graph) {
@@ -13,5 +15,7 @@ void printGraph(const AdjacencyList& graph) {
     std::cout << std::endl;
   }
 }
+
+} // snip namespace
 
 #endif

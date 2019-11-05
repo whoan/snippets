@@ -4,6 +4,8 @@
 #include <unordered_map>
 #include <queue>
 
+namespace snip {
+
 template <typename GraphAdjacencyList, typename VertexType, typename Tree = std::unordered_map<VertexType, VertexType>>
 class BreadthFirstTree {
   VertexType source;
@@ -41,5 +43,7 @@ template <typename GraphAdjacencyList, typename VertexType>
 auto makeBreadthFirstTree(GraphAdjacencyList graph, VertexType source) {
   return BreadthFirstTree<GraphAdjacencyList, VertexType>(std::move(graph), std::move(source));
 }
+
+} // snip namespace
 
 #endif

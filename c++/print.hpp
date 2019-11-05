@@ -3,9 +3,13 @@
 
 #include <iostream>
 
+namespace snip {
+
 template<typename ... Params>
 void print(Params ... params) {
   (std::cerr << ... << params) << std::endl;
 }
+
+} // snip namespace
 
 #endif
