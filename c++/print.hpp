@@ -10,6 +10,13 @@ void print(Params ... params) {
   (std::cerr << ... << params) << std::endl;
 }
 
+template <typename Collection>
+void printLoop(const Collection& collection) {
+  for (const auto& item : collection) {
+    std::cerr << item << std::endl;
+  }
+}
+
 } // snip namespace
 
 #endif
