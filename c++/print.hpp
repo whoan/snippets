@@ -5,6 +5,7 @@
 
 namespace snip {
 
+// info: fold-expressions are available since c++17
 template<typename ... Params>
 void print(Params ... params) {
   (std::cerr << ... << params) << std::endl;
