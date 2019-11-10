@@ -40,6 +40,19 @@ public:
     TreeNode* getRoot() {
         return root;
     }
+
+    static bool isValid(TreeNode* root) {
+        if (!root) {
+            return true;
+        }
+        if (root->left && root->left->data > root->data) {
+            return false;
+        }
+        if (root->right && root->right->data <= root->data) {
+            return false;
+        }
+        return isValid(root->left) && isValid(root->right);
+    }
 };
 
 // see https://github.com/whoan/snip
