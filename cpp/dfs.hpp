@@ -37,6 +37,15 @@ public:
     postOrder(node->right);
     std::cerr << node->data << " ";
   }
+
+  static void reverseInOrder(TreeNode* node) {
+    if (!node) {
+      return;
+    }
+    reverseInOrder(node->right);
+    std::cerr << node->data << " ";
+    reverseInOrder(node->left);
+  }
 };
 
 } // snip namespace
