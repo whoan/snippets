@@ -15,7 +15,7 @@ public:
     TreeNode(int data) : data(data) {}
 };
 
-class BFS {
+class BST {
     TreeNode* root = nullptr;
 
     TreeNode* insert(TreeNode* rootSubTree, int data) {
@@ -31,7 +31,7 @@ class BFS {
     }
 
 public:
-    BFS(const std::vector<int>& input) {
+    BST(const std::vector<int>& input) {
         for (auto element : input) {
             root = insert(root, element);
         }
@@ -45,8 +45,8 @@ public:
 // see https://github.com/whoan/snip
 // snip("std-input.hpp")
 
-BFS createBinarySearchTreeFromInput(std::size_t size) {
-    return BFS(snip::createCollectionFromStdInput<int>(size));
+BST createBinarySearchTreeFromInput(std::size_t size) {
+    return BST(snip::createCollectionFromStdInput<int>(size));
 }
 
 } // snip namespace
