@@ -1,6 +1,8 @@
 #ifndef _SNIPPETS_BINARY_SEARCH_TREE_HPP
 #define _SNIPPETS_BINARY_SEARCH_TREE_HPP
 
+// reference: https://www.programiz.com/dsa/breadth-first-search-tree
+
 #include <vector>
 
 namespace snip {
@@ -20,14 +22,10 @@ class BFS {
         if (rootSubTree == nullptr) {
             return new TreeNode(data);
         }
-
-        TreeNode* cur;
         if (data <= rootSubTree->data) {
-            cur = insert(rootSubTree->left, data);
-            rootSubTree->left = cur;
+            rootSubTree->left = insert(rootSubTree->left, data);
         } else {
-            cur = insert(rootSubTree->right, data);
-            rootSubTree->right = cur;
+            rootSubTree->right = insert(rootSubTree->right, data);
         }
         return rootSubTree;
     }
@@ -52,6 +50,5 @@ BFS createBinarySearchTreeFromInput(std::size_t size) {
 }
 
 } // snip namespace
-
 
 #endif
