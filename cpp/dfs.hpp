@@ -2,6 +2,7 @@
 #define _SNIPPETS_DFS_HPP
 
 #include <iostream>
+#include <stack>
 
 // reference: https://www.programiz.com/dsa/tree-traversal
 
@@ -21,6 +22,16 @@ class DFS {
   : method(method), direction(direction)
   {
     traverse(root);
+  }
+
+  template <typename TreeNode>
+  auto getOneSide(TreeNode node) {
+    return direction == LeftToRight ? node->left : node->right;
+  }
+
+  template <typename TreeNode>
+  auto getOtherSide(TreeNode node) {
+    return direction == RightToLeft ? node->left : node->right;
   }
 
   template <typename TreeNode>
@@ -44,6 +55,57 @@ class DFS {
     traverse(direction == LeftToRight ? node->right : node->left);
     if (method == Method::PostOrder) {
       visit(node);
+    }
+  }
+
+  template <typename TreeNode>
+  void traverseIterative(TreeNode root) {
+    if (method == PostOrder) {
+      throw std::runtime_error("Not implemented yet");
+    }
+
+    std::stack<TreeNode> nodes;
+    auto node = root;
+    nodes.push(root);
+    if (method == Method::PreOrder) {
+      visit(node);
+    }
+
+    while (node) {
+      // process the left diagonal
+      while (getOneSide(node)) {
+        nodes.push(getOneSide(node));
+        node = getOneSide(node);
+        if (method == Method::PreOrder) {
+          visit(node);
+        }
+      }
+      // remove the leftmost node as it is processed now
+      nodes.pop();
+      if (method == Method::InOrder) {
+        visit(node);
+      }
+
+      // find the deepest node with right node
+      while (!getOtherSide(node) && nodes.size()) {
+        node = nodes.top();
+        nodes.pop();
+        if (method == Method::InOrder) {
+          visit(node);
+        }
+      }
+
+      // having processed the left subtree, if there is no right subtree, we are done
+      if (!getOtherSide(node)) {
+        break;
+      }
+
+      // process the right subtree
+      nodes.push(getOtherSide(node));
+      node = getOtherSide(node);
+      if (method == Method::PreOrder) {
+        visit(node);
+      }
     }
   }
 
