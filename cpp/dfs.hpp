@@ -24,21 +24,26 @@ class DFS {
   }
 
   template <typename TreeNode>
+  void visit(TreeNode node) {
+    std::cerr << node->data << " ";
+  }
+
+  template <typename TreeNode>
   void traverse(TreeNode node) {
     if (!node) {
       return;
     }
 
     if (method == Method::PreOrder) {
-      std::cerr << node->data << " ";
+      visit(node);
     }
     traverse(direction == LeftToRight ? node->left : node->right);
     if (method == Method::InOrder) {
-      std::cerr << node->data << " ";
+      visit(node);
     }
     traverse(direction == LeftToRight ? node->right : node->left);
     if (method == Method::PostOrder) {
-      std::cerr << node->data << " ";
+      visit(node);
     }
   }
 
