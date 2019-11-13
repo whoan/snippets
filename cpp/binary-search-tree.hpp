@@ -42,6 +42,7 @@ public:
     }
 
     static bool isValid(TreeNode* root) {
+        // TODO this is wrong
         if (!root) {
             return true;
         }
