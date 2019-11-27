@@ -18,6 +18,14 @@ void printLoop(const Collection& collection) {
   }
 }
 
+template <typename Collection>
+void printLoopSpaces(const Collection& collection) {
+  for (const auto& item : collection) {
+    std::cerr << item << " ";
+  }
+  std::cerr << std::endl;
+}
+
 } // snip namespace
 
 #endif
