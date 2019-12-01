@@ -17,6 +17,16 @@ std::vector<T> createCollectionFromStdInput(std::size_t size) {
   return collection;
 }
 
+template <typename T>
+std::vector<T> createCollectionFromStdInput() {
+  std::vector<T> collection;
+  T fromInput;
+  while (std::cin >> fromInput) {
+    collection.push_back(fromInput);
+  }
+  return collection;
+}
+
 } // snip namespace
 
 #endif
