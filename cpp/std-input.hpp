@@ -27,6 +27,13 @@ std::vector<T> createCollectionFromStdInput() {
   return collection;
 }
 
+template <typename T>
+T takeFromStdInput() {
+  T fromInput;
+  std::cin >> fromInput;
+  return fromInput;
+}
+
 } // snip namespace
 
 #endif
