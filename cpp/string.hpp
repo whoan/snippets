@@ -27,15 +27,15 @@ String trim(String&& input, char toTrim=' ') {
     return input;
 }
 
-std::vector<std::string_view> split(std::string_view review, char separator=' ') {
+std::vector<std::string_view> split(std::string_view input, char separator=' ') {
     std::vector<std::string_view> words;
-    std::size_t previousPos = review.find_first_not_of(separator);
-    for (auto pos = review.find(separator, previousPos); pos != std::string_view::npos; pos = review.find(separator, previousPos)) {
-        words.push_back(review.substr(previousPos, pos-previousPos));
-        previousPos = review.find_first_not_of(separator, pos + 1);
+    std::size_t previousPos = input.find_first_not_of(separator);
+    for (auto pos = input.find(separator, previousPos); pos != std::string_view::npos; pos = input.find(separator, previousPos)) {
+        words.push_back(input.substr(previousPos, pos-previousPos));
+        previousPos = input.find_first_not_of(separator, pos + 1);
     }
     if (previousPos != std::string_view::npos) {
-        words.push_back(review.substr(previousPos));
+        words.push_back(input.substr(previousPos));
     }
     return words;
 }
