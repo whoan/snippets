@@ -1,7 +1,15 @@
 #include <vector>
 #include <string_view>
+#include <charconv>
 
 namespace snip {
+
+int sviewtoi(string_view input) {
+    // notice that it is not checking for errors: https://en.cppreference.com/w/cpp/utility/from_chars
+    int output = 0;
+    std::from_chars(input.data(), input.data() + input.size(), output);
+    return output;
+}
 
 // unsing a forwarding reference makes it possibe to pass by value or reference (rvalue)
 template<typename String>
