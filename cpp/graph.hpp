@@ -10,7 +10,7 @@ void printGraph(const AdjacencyList& graph) {
   for (const auto& pair: graph) {
     std::cout << pair.first;
     for (const auto& vertex : pair.second) {
-       std::cout << "-> " << vertex;
+      std::cout << "-> " << vertex;
     }
     std::cout << std::endl;
   }
