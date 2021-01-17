@@ -1,3 +1,6 @@
+#ifndef _SNIPPETS_CPP_STRING_HPP
+#define _SNIPPETS_CPP_STRING_HPP
+
 #include <vector>
 #include <string_view>
 #include <charconv>
@@ -41,3 +44,5 @@ std::vector<std::string_view> split(std::string_view input, char separator=' ') 
 }
 
 } // snip namespace
+
+#endif

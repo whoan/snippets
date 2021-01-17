@@ -1,3 +1,6 @@
+#ifndef _SNIPPETS_MATH_HPP
+#define _SNIPPETS_MATH_HPP
+
 #include <cmath>
 
 namespace snip {
@@ -11,3 +14,5 @@ int getLeastSignificantDigit(int x) {
 }
 
 } // snip namespace
+
+#endif
