@@ -30,17 +30,15 @@ String trim(String&& input, char toTrim=' ') {
     return input;
 }
 
-std::vector<std::string_view> split(std::string_view input, char separator=' ') {
-    std::vector<std::string_view> words;
-    std::size_t previousPos = input.find_first_not_of(separator);
-    for (auto pos = input.find(separator, previousPos); pos != std::string_view::npos; pos = input.find(separator, previousPos)) {
-        words.push_back(input.substr(previousPos, pos-previousPos));
-        previousPos = input.find_first_not_of(separator, pos + 1);
+std::vector<std::string_view> split(std::string_view input) const {
+    std::vector<std::string_view> tokens;
+    std:size_t start = 0;
+    for (auto pos = input.find(separator); pos != std::string_view::npos; pos = input.find(separator, start)) {
+        tokens.push_back(input.substr(start, pos-start));
+        start = pos + 1;
     }
-    if (previousPos != std::string_view::npos) {
-        words.push_back(input.substr(previousPos));
-    }
-    return words;
+    tokens.push_back(input.substr(start));
+    return tokens;
 }
 
 } // snip namespace

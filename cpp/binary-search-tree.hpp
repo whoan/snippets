@@ -57,7 +57,7 @@ public:
 };
 
 // see https://github.com/whoan/snip
-// snip("std-input.hpp")
+// snip("cpp/std-input.hpp")
 
 BST createBinarySearchTreeFromInput(std::size_t size) {
     return BST(snip::createCollectionFromStdInput<int>(size));
